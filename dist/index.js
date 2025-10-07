@@ -2,15 +2,18 @@ import express from 'express';
 import { Works } from './data/works.js';
 import pdfRouter from './routes/pdf.js';
 import cors from 'cors';
-console.log("✅ File loaded");
+console.log("✅ index.js loaded");
 const app = express();
 //app.use(cors({ origin: ["https://myapp-server.onrender.com"], credentials: true }));
 // Fully open CORS for public content (no credentials)
 app.use(cors()); // sets Access-Control-Allow-Origin: *
 app.options("*", cors()); // respond to preflight immediately
+console.log("✅ CORS implemented");
 app.use(express.json());
 app.use('/api', pdfRouter);
+console.log("✅ Middleware loaded");
 const PORT = process.env.PORT || 3000;
+console.log(`✅ PORT: ${PORT}`);
 app.get('/api/works', async (_req, res) => {
     //res.set("Cache-Control", "public, max-age=31536000, immutable");
     res.json(Works);
@@ -33,6 +36,7 @@ app.get('/api/works/:form', async (_req, res) => {
         console.log(err);
     }
 });
+console.log("✅ Express.js APIs set");
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
