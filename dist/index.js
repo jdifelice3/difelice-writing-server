@@ -4,6 +4,7 @@ import pdfRouter from './routes/pdf.js';
 import cors from 'cors';
 console.log("✅ index.js loaded");
 const app = express();
+console.log("✅ app = express()");
 //app.use(cors({ origin: ["https://myapp-server.onrender.com"], credentials: true }));
 // Fully open CORS for public content (no credentials)
 app.use(cors()); // sets Access-Control-Allow-Origin: *
