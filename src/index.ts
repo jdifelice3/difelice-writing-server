@@ -15,7 +15,7 @@ console.log("✅ app = express()");
 //app.use(cors({ origin: ["https://myapp-server.onrender.com"], credentials: true }));
 // Fully open CORS for public content (no credentials)
 app.use(cors());                     // sets Access-Control-Allow-Origin: *
-app.options("*", cors());            // respond to preflight immediately
+app.options(/.*/, cors());            // respond to preflight immediately
 
 console.log("✅ CORS implemented");
 
