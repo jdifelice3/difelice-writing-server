@@ -63,7 +63,13 @@ console.log("✅ Express.js APIs set");
 
 const PORT = Number(process.env.PORT) || 3000;
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server listening on http://0.0.0.0:${PORT}`);
-  console.log("External URL:", process.env.RENDER_EXTERNAL_URL || "(not set)");
-});
+if(process.env.NODE_ENV == 'production'){
+    app.listen(PORT, "0.0.0.0", () => {
+        console.log(`Server listening on http://0.0.0.0:${PORT}`);
+        console.log("External URL:", process.env.RENDER_EXTERNAL_URL || "(not set)");
+    });
+} else {
+    app.listen(PORT, () => {
+        console.log(`Server listening on port ${PORT}`);
+    });
+}
