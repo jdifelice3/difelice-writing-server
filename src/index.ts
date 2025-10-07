@@ -24,9 +24,16 @@ app.use('/api', pdfRouter);
 
 console.log("✅ Middleware loaded");
 
-const PORT = process.env.PORT || 3000;
+//const PORT = process.env.PORT || 3000;
 
-console.log(`✅ PORT: ${PORT}`);
+//console.log(`✅ PORT: ${PORT}`);
+
+app.use((req, _res, next) => {
+  console.log(`[REQ] ${req.method} ${req.url}`);
+  next();
+});
+
+app.get("/health", (_req, res) => res.status(200).send("ok"));
 
 app.get('/api/works', async(_req:Request<{}, Work[], WorkInput,{}>, res:Response<Work[]>) => {
     //res.set("Cache-Control", "public, max-age=31536000, immutable");
@@ -54,6 +61,9 @@ app.get('/api/works/:form', async(_req:Request<{form: string}, Work[], {}>, res:
 
 console.log("✅ Express.js APIs set");
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+const PORT = Number(process.env.PORT) || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server listening on http://0.0.0.0:${PORT}`);
+  console.log("External URL:", process.env.RENDER_EXTERNAL_URL || "(not set)");
 });
