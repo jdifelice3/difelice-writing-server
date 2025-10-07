@@ -10,8 +10,11 @@ console.log("✅ File loaded");
 
 const app = express();
 
-//app.use(cors({ origin: 'http://localhost:5173', credentials: false }));
-app.use(cors({ origin: ["https://myapp-server.onrender.com"], credentials: true }));
+//app.use(cors({ origin: ["https://myapp-server.onrender.com"], credentials: true }));
+// Fully open CORS for public content (no credentials)
+app.use(cors());                     // sets Access-Control-Allow-Origin: *
+app.options("*", cors());            // respond to preflight immediately
+
 app.use(express.json());
 app.use('/api', pdfRouter);
 
