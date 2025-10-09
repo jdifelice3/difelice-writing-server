@@ -27,14 +27,9 @@ app.get('/api/works', async (_req, res) => {
 app.get('/api/works/:form', async (_req, res) => {
     console.log('in Express function');
     try {
-        const results = 
-        //z.array(WorkSchema).parse( 
-        Works.filter(w => w.form.toString() === _req.params.form).sort(function (a, b) {
+        const results = Works.filter(w => w.form.toString() === _req.params.form).sort(function (a, b) {
             return ('' + a.title).localeCompare(b.title);
         });
-        //); 
-        console.log(Works);
-        //res.set("Cache-Control", "public, max-age=31536000, immutable");
         res.set("Cache-Control", "public, max-age=0, immutable");
         res.json(results);
     }
