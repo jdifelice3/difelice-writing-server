@@ -12,10 +12,6 @@ app.options(/.*/, cors()); // respond to preflight immediately
 console.log("✅ CORS implemented");
 app.use(express.json());
 app.use('/api', pdfRouter);
-// catches 404s and redirects to the homepage.
-app.use((req, res, next) => {
-    res.redirect('/');
-});
 console.log("✅ Middleware loaded");
 //const PORT = process.env.PORT || 3000;
 //console.log(`✅ PORT: ${PORT}`);
@@ -40,6 +36,10 @@ app.get('/api/works/:form', async (_req, res) => {
     catch (err) {
         console.log(err);
     }
+});
+// catches 404s and redirects to the homepage.
+app.use((req, res, next) => {
+    res.redirect('/');
 });
 console.log("✅ Express.js APIs set");
 const PORT = Number(process.env.PORT) || 3000;

@@ -22,11 +22,6 @@ console.log("✅ CORS implemented");
 app.use(express.json());
 app.use('/api', pdfRouter);
 
-// catches 404s and redirects to the homepage.
-app.use((req, res, next) => {
-  res.redirect('/');
-});
-
 console.log("✅ Middleware loaded");
 
 //const PORT = process.env.PORT || 3000;
@@ -58,6 +53,11 @@ app.get('/api/works/:form', async(_req:Request<{form: string}, Work[], {}>, res:
     } catch (err) {
         console.log(err);
     }
+});
+
+// catches 404s and redirects to the homepage.
+app.use((req, res, next) => {
+  res.redirect('/');
 });
 
 console.log("✅ Express.js APIs set");
