@@ -40,7 +40,7 @@ export const Works = z.array(WorkSchema).parse([
         id: '4',
         title: 'Blind Study',
         description: 'In a lavish room disguised as a research site, five strangers are told they’re part of a memory experiment. But when the doors lock and participants begin to collapse, the true nature of the study unravels. Blind Study is a psychological thriller that explores obedience, isolation, and the desperate need to make sense of the senseless. As trust erodes and reality blurs, the question remains: who’s conducting the experiment, and who is the real subject?',
-        form: Form.Enum.play,
+        form: Form.Enum['short story'],
         wordCount: 0,
         pageCount: 0,
         genre: Genre.enum.literary,
