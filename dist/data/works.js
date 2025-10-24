@@ -121,7 +121,7 @@ export const Works = z.array(WorkSchema).parse([
         wordCount: 0,
         pageCount: 0,
         genre: Genre.enum.literary,
-        fileName: '',
+        fileName: 'Spread My Ashes Like We Planned.pdf',
         manuscriptIsVisible: false
     },
     {
