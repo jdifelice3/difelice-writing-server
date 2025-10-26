@@ -170,5 +170,16 @@ export const Works = z.array(WorkSchema).parse([
         genre: Genre.enum.literary,
         fileName: 'Perils.pdf',
         manuscriptIsVisible: false
+    },
+    {
+        id: '17',
+        title: 'Balk!',
+        description: 'A Major League Baseball pitcher contemplates throwing his career away during his Major League debut.',
+        form: Form.Enum['short story'],
+        wordCount: 0,
+        pageCount: 0,
+        genre: Genre.enum.literary,
+        fileName: 'Balk.pdf',
+        manuscriptIsVisible: false
     }
 ]);
