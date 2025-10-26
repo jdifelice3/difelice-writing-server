@@ -4,12 +4,12 @@ import path from 'node:path';
 const pdfRouter = Router();
 pdfRouter.get('/pdf/:name', (req, res) => {
     try {
-        console.log('in pdfRouter.get');
+        console.log(new Date().toString());
         const safeName = (!req.params.name || req.params.name.length === 0) ? 'document.pdf' : req.params.name;
-        console.log('safeName', safeName);
+        console.log('Name:', safeName);
         //const safeName: string = req.params.name;
         const filePath = path.join(process.cwd(), 'pdfs', safeName);
-        console.log('filePath', filePath);
+        //console.log('filePath', filePath);
         fs.stat(filePath, (err, stat) => {
             res.setHeader('Content-Type', 'application/pdf');
             res.setHeader('Content-Disposition', `inline; filename="${encodeURIComponent(safeName)}"`);

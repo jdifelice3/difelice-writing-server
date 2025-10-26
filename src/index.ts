@@ -4,7 +4,6 @@ import { Works } from './data/works.js';
 import { Work, WorkInput, WorkSchema } from './types.js';
 import pdfRouter from './routes/pdf.js'
 import cors from 'cors';
-import { z } from "zod";
 
 console.log("✅ index.js loaded");
 
@@ -21,17 +20,12 @@ console.log("✅ CORS implemented");
 
 app.use(express.json());
 app.use('/api', pdfRouter);
-
-console.log("✅ Middleware loaded");
-
-//const PORT = process.env.PORT || 3000;
-
-//console.log(`✅ PORT: ${PORT}`);
-
 app.use((req, _res, next) => {
   console.log(`[REQ] ${req.method} ${req.url}`);
   next();
 });
+
+console.log("✅ Middleware loaded");
 
 app.get("/health", (_req, res) => res.status(200).send("ok"));
 

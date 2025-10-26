@@ -12,13 +12,11 @@ app.options(/.*/, cors()); // respond to preflight immediately
 console.log("✅ CORS implemented");
 app.use(express.json());
 app.use('/api', pdfRouter);
-console.log("✅ Middleware loaded");
-//const PORT = process.env.PORT || 3000;
-//console.log(`✅ PORT: ${PORT}`);
 app.use((req, _res, next) => {
     console.log(`[REQ] ${req.method} ${req.url}`);
     next();
 });
+console.log("✅ Middleware loaded");
 app.get("/health", (_req, res) => res.status(200).send("ok"));
 app.get('/api/works', async (_req, res) => {
     //res.set("Cache-Control", "public, max-age=31536000, immutable");
