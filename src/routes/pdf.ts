@@ -6,7 +6,7 @@ const pdfRouter = Router();
 
 pdfRouter.get('/pdf/:name', (req: Request<{ name: string}>, res: Response<{}, {}>) => {
     try {
-            console.log(new Date().toString());
+        console.log(new Date().toString());
         const safeName: string = (!req.params.name || req.params.name.length === 0) ? 'document.pdf' : req.params.name;
         console.log('Name:', safeName);
         //const safeName: string = req.params.name;
