@@ -174,7 +174,7 @@ export const Works = z.array(WorkSchema).parse([
     {
         id: '17',
         title: 'Balk!',
-        description: 'A Major League Baseball pitcher contemplates throwing his career away during his Major League debut.',
+        description: 'BALK! follows a lifelong underdog—a 32-year-old journeyman pitcher—making his Major League debut in the tensest situation imaginable: bases loaded, tie game, season on the line. As he walks to the mound, the moment triggers a cascade of memories, regrets, sacrifices, and the crushing weight of other people’s dreams. What begins as a classic sports drama slowly transforms into an intimate psychological portrait of ambition, identity, and inherited pressure. With sharp humor and escalating tension, the story builds toward a shocking, unforgettable act that rewrites the meaning of winning, losing, and control.',
         form: Form.Enum['short story'],
         wordCount: 0,
         pageCount: 0,
